@@ -1,6 +1,4 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ElectronService } from 'ngx-electron';
 import { Constants } from './shared/models/constants';
 
 @Component({

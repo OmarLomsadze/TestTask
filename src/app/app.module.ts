@@ -15,7 +15,7 @@ import { IpcService } from './services/ipc.service';
     BrowserModule,
     NgxElectronModule
   ],
-  providers: [ElectronService, IpcService],
+  providers: [IpcService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

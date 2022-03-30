@@ -9,23 +9,26 @@ export class IpcService {
   constructor(private elecService: ElectronService) {
   }
 
-  toggleFullscreen(): void {
-    this.elecService.ipcRenderer.send('toggleFullscreen')
+  ipcRender(setting: number): void {
+    switch (setting) {
+      case 1:
+        this.elecService.ipcRenderer.send('toggleFullscreen');
+        break;
+      case 2:
+        this.elecService.ipcRenderer.send('alwaysOnTop');
+        break;
+      case 3:
+        this.elecService.ipcRenderer.send('debugInfo');
+        break;
+      case 4:
+        this.elecService.ipcRenderer.send('reloadApp');
+        break;
+      case 5:
+        this.elecService.ipcRenderer.send('exitApp');
+        break;
+      default:
+        break;
+    }
   }
 
-  alwaysOnTop(): void {
-    this.elecService.ipcRenderer.send('alwaysOnTop')
-  }
-
-  debugInfo(): void {
-    this.elecService.ipcRenderer.send('debugInfo')
-  }
-
-  reloadApp(): void {
-    this.elecService.ipcRenderer.send('reloadApp')
-  }
-
-  exitApp(): void {
-    this.elecService.ipcRenderer.send('exitApp')
-  }
 }

@@ -1,6 +1,5 @@
 <div>
-  <video autoplay width="480" height="270" #videoElement (canplay)="videoElement.play()" [src]="videoSource" (ended)="playNext()">
-  </video>
+  <video autoplay width="480" height="270" #videoElement (canplay)="videoElement.play()" [src]="videoSource" (ended)="playNext()"></video>
 
   <app-controls></app-controls>
 </div>

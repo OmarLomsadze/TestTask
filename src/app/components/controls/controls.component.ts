@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { IpcService } from 'src/app/services/ipc.service';
 
 @Component({
@@ -14,24 +13,8 @@ export class ControlsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleFullscreen(): void {
-    this.ipcService.toggleFullscreen();
-  }
-
-  alwaysOnTop(): void {
-    this.ipcService.alwaysOnTop();
-  }
-
-  debugInfo(): void {
-    this.ipcService.debugInfo();
-  }
-
-  reloadApp(): void {
-    this.ipcService.reloadApp();
-  }
-
-  exitApp(): void {
-    this.ipcService.exitApp();
+  ipcRender(setting: number): void {
+    this.ipcService.ipcRender(setting);
   }
 
 }

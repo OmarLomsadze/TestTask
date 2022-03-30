@@ -4,7 +4,7 @@ import { ipcMain } from 'electron'
 import * as url from 'url'
 import * as path from 'path'
 
-let mainWindow: BrowserWindow;
+let mainWindow: BrowserWindow | null;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
@@ -19,7 +19,7 @@ function createWindow() {
 
     mainWindow.loadURL(
         url.format({
-            pathname: path.join(__dirname, `/dist/test-task/index.html`),
+            pathname: path.join(__dirname, `../../test-task/index.html`),
             protocol: "file:",
             slashes: true
         })
@@ -28,7 +28,7 @@ function createWindow() {
     //mainWindow.webContents.openDevTools()
 
     mainWindow.on('closed', function () {
-        mainWindow = new BrowserWindow({});
+        mainWindow = null
     })
 }
 
@@ -68,8 +68,6 @@ ipcMain.on("reloadApp", (event, args) => {
  
 ipcMain.on("exitApp", (event, args) => {
     let browserWindow = BrowserWindow.fromWebContents(event.sender)
-    if(browserWindow?.isClosable()) {
-       browserWindow.close(); 
-    }
+    browserWindow?.close(); 
     app.exit(0);
 })

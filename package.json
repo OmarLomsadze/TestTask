@@ -1,14 +1,14 @@
 {
   "name": "test-task",
   "version": "0.0.0",
-  "main": "app.js",
+  "main": "dist/out-tsc/electron/app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "electron": "ng build --base-href ./ && electron ."
+    "electron": "ng build --base-href ./ && tsc && electron ."
   },
   "private": true,
   "dependencies": {
